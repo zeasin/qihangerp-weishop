@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.qihangerp</groupId>
+        <artifactId>module</artifactId>
+        <version>2.0.1</version>
+    </parent>
+
+    <groupId>cn.qihangerp.api</groupId>
+    <artifactId>wei</artifactId>
+    <version>2.0.2</version>
+    <packaging>jar</packaging>
+
+    <name>wei</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>cn.qihangerp</groupId>-->
+<!--            <artifactId>wei-api</artifactId>-->
+<!--            <version>1.5.7</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/libs/wei-api-1.5.7.jar</systemPath>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>cn.qihangerp.open</groupId>
+            <artifactId>wei-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-core</artifactId>-->
+<!--            <version>3.5.3.1</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-extension</artifactId>-->
+<!--            <version>3.5.3.1</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+    </dependencies>
+</project>

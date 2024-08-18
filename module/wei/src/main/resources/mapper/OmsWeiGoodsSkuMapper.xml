@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qihangerp.api.wei.mapper.OmsWeiGoodsSkuMapper">
+
+    <resultMap id="BaseResultMap" type="cn.qihangerp.api.wei.domain.OmsWeiGoodsSku">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="productId" column="product_id" jdbcType="VARCHAR"/>
+            <result property="skuId" column="sku_id" jdbcType="VARCHAR"/>
+            <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+            <result property="outSkuId" column="out_sku_id" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="thumbImg" column="thumb_img" jdbcType="VARCHAR"/>
+            <result property="salePrice" column="sale_price" jdbcType="INTEGER"/>
+            <result property="stockNum" column="stock_num" jdbcType="INTEGER"/>
+            <result property="skuCode" column="sku_code" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="skuAttrs" column="sku_attrs" jdbcType="VARCHAR"/>
+            <result property="skuAttr" column="sku_attr" jdbcType="VARCHAR"/>
+            <result property="skuDeliverInfo" column="sku_deliver_info" jdbcType="VARCHAR"/>
+            <result property="erpGoodsId" column="erp_goods_id" jdbcType="BIGINT"/>
+            <result property="erpGoodsSkuId" column="erp_goods_sku_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,product_id,sku_id,shop_id,
+        out_sku_id,title,thumb_img,sale_price,
+        stock_num,sku_code,status,
+        sku_attrs,sku_deliver_info,erp_goods_id,
+        erp_goods_sku_id
+    </sql>
+
+
+    <resultMap type="Shop" id="ShopResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="ename"    column="ename"    />
+        <result property="company"    column="company"    />
+        <result property="platform"    column="platform"    />
+        <result property="sellerShopId"    column="seller_shop_id"    />
+        <result property="accessToken"    column="access_token"    />
+    </resultMap>
+    <sql id="selectShopVo">
+        select * from s_shop
+    </sql>
+    <select id="selectShopById" parameterType="Long" resultMap="ShopResult">
+        <include refid="selectShopVo"/>
+        where id = #{id}
+    </select>
+
+
+    <resultMap type="ShopSetting" id="ShopSettingResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="appKey"    column="app_key"    />
+        <result property="appSecret"    column="app_secret"    />
+        <result property="remark"    column="remark"    />
+        <result property="serverUrl"    column="server_url"    />
+        <result property="redirectUrl"    column="redirect_url"    />
+    </resultMap>
+    <sql id="selectShopSettingVo">
+        select * from  s_shop_platform
+    </sql>
+
+    <select id="selectShopSettingById" parameterType="Long" resultMap="ShopSettingResult">
+        <include refid="selectShopSettingVo"/>
+        where id = #{id}
+    </select>
+
+
+    <update id="updateShopSessionByShopId" >
+        update s_shop set access_token = #{sessionKey}
+        where id = #{shopId}
+    </update>
+
+</mapper>
